@@ -10,10 +10,12 @@ class ComponentA extends React.Component { // ComponentA should start with a cap
   }
 static getDerivedStateFromProps(){
     console.log("componentA getDriverdstste from props");
+    return null;
 
 }
 componentDidMount (){
    console.log("componentdidmount")
+
 }
   render() {
     console.log("ComponentA render");
