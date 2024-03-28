@@ -1,15 +1,30 @@
 import React from "react";
-import ComponentA from "./ComponentA"; // ComponentA should start with a capital letter
-import TimerOne from "./Timer/TimerOne";
+import TimerOne from "./Timer/TimerOne.js";
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      timerOn: false
+    }
+  }
+
+  handleTimerOn = () => {
+    this.setState((prevState) => {
+      return {
+        timerOn: !prevState.timerOn
+      }
+    })
+  };
+
   render() {
-
-    return(
-<ComponentA />,// ComponentA should start with a capital letter
- <TimerOne /> 
-    ) 
-
+    return (
+      <>
+        <TimerOne timerOn={this.state.timerOn}/>
+        <button onClick={this.handleTimerOn}>{this.state.timerOn ? "STOP" : "START"}</button>
+      </>
+    );
   }
 }
 
